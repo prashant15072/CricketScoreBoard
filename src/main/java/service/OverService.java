@@ -76,6 +76,7 @@ public class OverService {
     }
 
     private void completeOver(Over over,Innings currentInnings){
+        currentInnings.getOvers().add(over);
         currentInnings.setRunsScored(currentInnings.getRunsScored()+over.getTotalRunsInAnOver());
         currentInnings.setOversPlayed(over.getNumber());
     }

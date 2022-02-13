@@ -15,14 +15,10 @@ public class Match {
     boolean isMatchFinished;
     final int noOfPlayersInEachTeam;
 
-    List<Innings> inningsList;
+    final List<Innings> inningsList;
     final List<Team> teamsPlaying;
 
     public void addInnings(Innings inning){
-        if (inningsList==null){
-            inningsList = new ArrayList<>();
-        }
-
         inningsList.add(inning);
     }
 }

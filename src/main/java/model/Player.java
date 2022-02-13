@@ -1,25 +1,17 @@
 package model;
 
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
+@Builder
 public class Player {
-    String name;
-    int runScored;
-    int noOfBallsPlayed;
-    int noOfFours;
-    int noOfSixes;
+    final String name;
+    int runScored = 0;
+    int noOfBallsPlayed = 0;
+    int noOfFours =0;
+    int noOfSixes =0;
     int strikeRate;
-
-    public Player(String name){
-        this.name = name;
-        runScored =0;
-        noOfBallsPlayed =0;
-        noOfFours=0;
-        noOfSixes = 0;
-    }
 
     public double getStrikRate(){
         return (double)runScored/noOfBallsPlayed;

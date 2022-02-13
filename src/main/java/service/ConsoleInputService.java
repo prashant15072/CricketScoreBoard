@@ -26,7 +26,7 @@ public class ConsoleInputService implements InputService{
 
         for (int i=0;i<noOfPlayersInEachTeam;i++){
             String playerName= scanner.next();
-            Player player = new Player(playerName);
+            Player player = Player.builder().name(playerName).build();
             playerLinkedList.addLast(player);
         }
 

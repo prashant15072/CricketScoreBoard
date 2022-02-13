@@ -18,10 +18,10 @@ public class MatchService {
 
     public MatchService(int noOfPlayers, int noOfOvers, InputService inputService, OutputService outputService){
         List<Team> teams = new ArrayList<>(Constants.NO_OF_TEAMS_PLAYING);
-        teams.add(Team.builder().teamName(Constants.DEFAULT_TEAM_ONE_NAME).build());
-        teams.add(Team.builder().teamName(Constants.DEFAULT_TEAM_TWO_NAME).build());
+        teams.add(Team.builder().teamName(Constants.DEFAULT_TEAM_ONE_NAME).players(new LinkedList<>()).build());
+        teams.add(Team.builder().teamName(Constants.DEFAULT_TEAM_TWO_NAME).players(new LinkedList<>()).build());
         matchInfo = Match.builder().noOfInnings(Constants.DEFAULT_NO_OF_INNINGS).noOfPlayersInEachTeam(noOfPlayers).
-                totalNoOfOversInAnInnings(noOfOvers).teamsPlaying(teams).build();
+                totalNoOfOversInAnInnings(noOfOvers).teamsPlaying(teams).inningsList(new ArrayList<>()).build();
 
 
         this.inputService = inputService;

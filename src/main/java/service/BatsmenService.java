@@ -32,8 +32,7 @@ public class BatsmenService{
 
         batsmenWaitingInPavilion = currentInnings.getBatsmenWaitingInPavilion();
         batsmenWaitingInPavilion.addAll(requiredBattingOrder);
-
-        team.setPlayers(requiredBattingOrder);
+        team.getPlayers().addAll(requiredBattingOrder);
     }
 
     void updateBatsmenScore(Ball ball){

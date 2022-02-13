@@ -20,7 +20,7 @@ public class Innings {
     final Queue<Player> batsmenWaitingInPavilion;
     final LinkedList<Player> batsmenBatting;
 
-    List<Over> overs;
+    final List<Over> overs;
 
     public void addExtras(int val){
         totalExtras+=val;

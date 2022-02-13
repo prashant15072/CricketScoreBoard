@@ -5,6 +5,7 @@ import model.Match;
 import model.Player;
 import model.Team;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -44,6 +45,6 @@ public class InningsService {
         }
 
         return Innings.builder().totalNoOfOvers(matchInfo.getTotalNoOfOversInAnInnings()).BattingTeam(team)
-                .batsmenBatting(new LinkedList<>()).batsmenWaitingInPavilion(new LinkedList<>()).build();
+                .batsmenBatting(new LinkedList<>()).batsmenWaitingInPavilion(new LinkedList<>()).overs(new ArrayList<>()).build();
 }
 }
