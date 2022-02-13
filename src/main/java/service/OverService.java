@@ -48,7 +48,7 @@ public class OverService {
             {
                 currentInnings.setWicketsDown(currentInnings.getWicketsDown()+1);
                 //Team is All Out
-                if (currentInnings.getBatsmenWaitingInPavilion().isEmpty()) {
+                if (currentInnings.getBatsmenBatting().size()<2) {
                     completeOver(over,overNumber,ballArrayList,currentInnings);
                     return true;
                 }
