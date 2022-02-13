@@ -1,12 +1,14 @@
 package model;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class Ball {
-    private int runsScored;
-    private int extraRuns;
-    private boolean isExtras;
-    private boolean isWicket;
-    private boolean isCounted;
+    private final int runsScored;
+    private final int extraRuns;
+    private final boolean isExtras;
+    private final boolean isWicket;
+    private final boolean isCounted;
 }

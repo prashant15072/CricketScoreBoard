@@ -5,6 +5,7 @@ import model.Match;
 import model.Player;
 import model.Team;
 
+import java.util.LinkedList;
 import java.util.Queue;
 
 public class InningsService {
@@ -34,8 +35,6 @@ public class InningsService {
     }
 
     private Innings getInnings(Match matchInfo,boolean firstTeamBatting){
-        Innings innings = new Innings();
-        innings.setTotalNoOfOvers(matchInfo.getTotalNoOfOversInAnInnings());
 
         Team team ;
         if (firstTeamBatting){
@@ -43,8 +42,8 @@ public class InningsService {
         }else{
             team = matchInfo.getTeamsPlaying().get(1);
         }
-        innings.setBattingTeam(team);
 
-        return innings;
-    }
+        return Innings.builder().totalNoOfOvers(matchInfo.getTotalNoOfOversInAnInnings()).BattingTeam(team)
+                .batsmenBatting(new LinkedList<>()).batsmenWaitingInPavilion(new LinkedList<>()).build();
+}
 }

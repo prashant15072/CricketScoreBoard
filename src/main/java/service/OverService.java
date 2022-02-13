@@ -30,10 +30,9 @@ public class OverService {
     }
 
     private boolean startNewOver(Innings currentInnings,boolean isLastInnings,int runsToWin){
-        Over over = new Over();
         int overNumber = currentInnings.getOversPlayed();
         List<Ball> ballArrayList = new ArrayList<>();
-        over.setNumber(++overNumber);
+        Over over = Over.builder().number(++overNumber).balls(ballArrayList).build();
 
         outputService.printOverNumber(overNumber);
 
@@ -49,7 +48,7 @@ public class OverService {
                 currentInnings.setWicketsDown(currentInnings.getWicketsDown()+1);
                 //Team is All Out
                 if (currentInnings.getBatsmenBatting().size()<2) {
-                    completeOver(over,overNumber,ballArrayList,currentInnings);
+                    completeOver(over,currentInnings);
                     return true;
                 }
             }
@@ -65,20 +64,19 @@ public class OverService {
             }
 
             if (isLastInnings && currentInnings.getRunsScored()+over.getTotalRunsInAnOver()>=runsToWin){
-                    completeOver(over,overNumber,ballArrayList,currentInnings);
+                    completeOver(over,currentInnings);
                     return true;
             }
 
             i++;
         }
 
-        completeOver(over,overNumber,ballArrayList,currentInnings);
+        completeOver(over,currentInnings);
         return false;
     }
 
-    private void completeOver(Over over,int overNumber,List<Ball> ballArrayList,Innings currentInnings){
-        over.setBalls(ballArrayList);
+    private void completeOver(Over over,Innings currentInnings){
         currentInnings.setRunsScored(currentInnings.getRunsScored()+over.getTotalRunsInAnOver());
-        currentInnings.setOversPlayed(overNumber);
+        currentInnings.setOversPlayed(over.getNumber());
     }
 }

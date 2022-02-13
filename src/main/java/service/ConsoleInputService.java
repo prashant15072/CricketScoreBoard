@@ -30,15 +30,15 @@ public class ConsoleInputService implements InputService{
             playerLinkedList.addLast(player);
         }
 
-        return playerLinkedList; //TODO Better to have this as a Queue
+        return playerLinkedList;
     }
 
     @Override
     public Ball getBall() {
-        Ball ball = new Ball();
+        Ball.BallBuilder ballBuilder = Ball.builder();
         String event = scanner.next();
         if (event.equals(RunType.WICKET.getString())){
-            ball.setWicket(true);
+            ballBuilder.isWicket(true);
         }
         else {
             Optional<RunType> optionalRunType = Arrays.stream(RunType.values()).filter(r -> r.getString().equals(event)).findFirst();
@@ -48,14 +48,12 @@ public class ConsoleInputService implements InputService{
 
             RunType runType  = optionalRunType.get();
             if (runType.isExtras()) {
-                ball.setExtras(true);
+                ballBuilder.isExtras(true);
             }
-            ball.setCounted(runType.isBallCounted());
-            ball.setRunsScored(runType.getRuns());
-            ball.setExtraRuns(runType.getExtraRuns());
+            ballBuilder.isCounted(runType.isBallCounted()).runsScored(runType.getRuns()).extraRuns(runType.getExtraRuns());
         }
 
-        return ball;
+        return ballBuilder.build();
     }
 
     @Override

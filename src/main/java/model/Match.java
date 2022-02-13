@@ -9,14 +9,14 @@ import java.util.List;
 @Data
 @Builder
 public class Match {
-    int totalNoOfOversInAnInnings;
-    int noOfInnings;
+    final int totalNoOfOversInAnInnings;
+    final int noOfInnings;
     int currentInnings;
     boolean isMatchFinished;
-    int noOfPlayersInEachTeam;
+    final int noOfPlayersInEachTeam;
 
     List<Innings> inningsList;
-    List<Team> teamsPlaying;
+    final List<Team> teamsPlaying;
 
     public void addInnings(Innings inning){
         if (inningsList==null){

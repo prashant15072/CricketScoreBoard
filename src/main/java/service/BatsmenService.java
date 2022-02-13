@@ -30,15 +30,10 @@ public class BatsmenService{
             throw new InvalidActionException("Players in the team are less than expected!");
         }
 
-        batsmenWaitingInPavilion = new LinkedList<>();
+        batsmenWaitingInPavilion = currentInnings.getBatsmenWaitingInPavilion();
         batsmenWaitingInPavilion.addAll(requiredBattingOrder);
 
-        batsmenBatting = new LinkedList<>();
-
         team.setPlayers(requiredBattingOrder);
-        currentInnings.setBatsmenBatting(batsmenBatting);
-        currentInnings.setBatsmenWaitingInPavilion(batsmenWaitingInPavilion);
-
     }
 
     void updateBatsmenScore(Ball ball){

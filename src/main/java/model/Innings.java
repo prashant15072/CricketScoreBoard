@@ -1,5 +1,6 @@
 package model;
 
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.LinkedList;
@@ -7,16 +8,17 @@ import java.util.List;
 import java.util.Queue;
 
 @Data
+@Builder
 public class Innings {
-    int totalNoOfOvers;
+    final int totalNoOfOvers;
     int oversPlayed=0;
     int runsScored=0;
     int wicketsDown = 0;
     int totalExtras = 0;
 
-    Team BattingTeam;
-    Queue<Player> batsmenWaitingInPavilion;
-    LinkedList<Player> batsmenBatting;
+    final Team BattingTeam;
+    final Queue<Player> batsmenWaitingInPavilion;
+    final LinkedList<Player> batsmenBatting;
 
     List<Over> overs;
 
