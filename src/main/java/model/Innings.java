@@ -10,17 +10,17 @@ import java.util.Queue;
 @Data
 @Builder
 public class Innings {
-    final int totalNoOfOvers;
-    int oversPlayed=0;
-    int runsScored=0;
-    int wicketsDown = 0;
-    int totalExtras = 0;
+    private final int totalNoOfOvers;
+    private int oversPlayed=0;
+    private int runsScored=0;
+    private int wicketsDown = 0;
+    private int totalExtras = 0;
 
-    final Team BattingTeam;
-    final Queue<Player> batsmenWaitingInPavilion;
-    final LinkedList<Player> batsmenBatting;
+    private final Team BattingTeam;
+    private final Queue<Player> batsmenWaitingInPavilion;
+    private final LinkedList<Player> batsmenBatting;
 
-    final List<Over> overs;
+    private final List<Over> overs;
 
     public void addExtras(int val){
         totalExtras+=val;

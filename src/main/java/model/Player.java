@@ -6,12 +6,12 @@ import lombok.Data;
 @Data
 @Builder
 public class Player {
-    final String name;
-    int runScored = 0;
-    int noOfBallsPlayed = 0;
-    int noOfFours =0;
-    int noOfSixes =0;
-    int strikeRate;
+    private final String name;
+    private int runScored = 0;
+    private int noOfBallsPlayed = 0;
+    private int noOfFours =0;
+    private int noOfSixes =0;
+    private int strikeRate;
 
     public double getStrikRate(){
         return (double)runScored/noOfBallsPlayed;

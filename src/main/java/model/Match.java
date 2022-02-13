@@ -9,11 +9,11 @@ import java.util.List;
 @Data
 @Builder
 public class Match {
-    final int totalNoOfOversInAnInnings;
-    final int noOfInnings;
-    int currentInnings;
-    boolean isMatchFinished;
-    final int noOfPlayersInEachTeam;
+    private final int totalNoOfOversInAnInnings;
+    private final int noOfInnings;
+    private int currentInnings;
+    private boolean isMatchFinished;
+    private final int noOfPlayersInEachTeam;
 
     final List<Innings> inningsList;
     final List<Team> teamsPlaying;

@@ -7,6 +7,6 @@ import java.util.Queue;
 @Data
 @Builder
 public class Team {
-    final String teamName;
-    final Queue<Player> players;
+    private final String teamName;
+    private final Queue<Player> players;
 }
