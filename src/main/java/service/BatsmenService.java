@@ -10,7 +10,6 @@ import java.util.Queue;
 public class BatsmenService{
     private final Match matchInfo;
     private Queue<Player> batsmenWaitingInPavilion;
-    private LinkedList<Player> batsmenBatting;
     private Innings currentInnings;
 
     BatsmenService(Match match){
@@ -19,7 +18,6 @@ public class BatsmenService{
 
     private void updateBatsmenQueue(){
         currentInnings = matchInfo.getInningsList().get(matchInfo.getInningsList().size()-1);
-        batsmenBatting=currentInnings.getBatsmenBatting();
         batsmenWaitingInPavilion = currentInnings.getBatsmenWaitingInPavilion();
     }
 
@@ -36,11 +34,11 @@ public class BatsmenService{
     }
 
     void updateBatsmenScore(Ball ball){
-        Player player = batsmenBatting.peek();
+        Player player = currentInnings.getOnStrikeBatsmen();
         if (ball.isWicket())
         {
-            batsmenBatting.poll();
-            if (!batsmenWaitingInPavilion.isEmpty())batsmenBatting.addFirst(batsmenWaitingInPavilion.poll());
+            currentInnings.setOnStrikeBatsmen(null);
+            if (!batsmenWaitingInPavilion.isEmpty())currentInnings.setOnStrikeBatsmen(batsmenWaitingInPavilion.poll());
             player.setNoOfBallsPlayed(player.getNoOfBallsPlayed()+1);
 
         }else{
@@ -60,14 +58,23 @@ public class BatsmenService{
     }
 
     void rotateStrike(){
-        if (batsmenBatting.size()<2){
+        if (!isBattingPairAvailable()){
             throw new InvalidActionException("Not enough batsmen to rotate the strike");
         }
-        batsmenBatting.addLast(batsmenBatting.poll());
+        Player temp = currentInnings.getOnStrikeBatsmen();
+        currentInnings.setOnStrikeBatsmen(currentInnings.getOffStrikeBatsmen());
+        currentInnings.setOffStrikeBatsmen(temp);
+    }
+
+    boolean isBattingPairAvailable(){
+        if (currentInnings.getOnStrikeBatsmen()==null || currentInnings.getOffStrikeBatsmen()==null){
+            return false;
+        }
+        return true;
     }
 
     void addOpeningBatsmenPair() {
-        batsmenBatting.add(batsmenWaitingInPavilion.poll());
-        batsmenBatting.add(batsmenWaitingInPavilion.poll());
+        currentInnings.setOnStrikeBatsmen(batsmenWaitingInPavilion.poll());
+        currentInnings.setOffStrikeBatsmen(batsmenWaitingInPavilion.poll());
     }
 }

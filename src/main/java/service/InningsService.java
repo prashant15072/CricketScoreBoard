@@ -45,6 +45,6 @@ public class InningsService {
         }
 
         return Innings.builder().totalNoOfOvers(matchInfo.getTotalNoOfOversInAnInnings()).BattingTeam(team)
-                .batsmenBatting(new LinkedList<>()).batsmenWaitingInPavilion(new LinkedList<>()).overs(new ArrayList<>()).build();
+                .batsmenWaitingInPavilion(new LinkedList<>()).overs(new ArrayList<>()).build();
     }
 }

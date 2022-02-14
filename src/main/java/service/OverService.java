@@ -4,6 +4,7 @@ import Utils.Constants;
 import model.Ball;
 import model.Innings;
 import model.Over;
+import model.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,8 @@ public class OverService {
     void startOvers(Innings currentInnings,boolean isLastInnings,int runsToWin){
         for (int i=0;i<currentInnings.getTotalNoOfOvers();i++){
             boolean isInningsCompleted = startNewOver(currentInnings,isLastInnings,runsToWin);
-            outputService.printScoreCard(currentInnings,currentInnings.getBatsmenBatting());
+
+            outputService.printScoreCard(currentInnings,currentInnings.getOnStrikeBatsmen(),currentInnings.getOffStrikeBatsmen());
 
             if (isInningsCompleted)break;
             batsmenService.rotateStrike();
@@ -47,7 +49,7 @@ public class OverService {
             {
                 currentInnings.setWicketsDown(currentInnings.getWicketsDown()+1);
                 //Team is All Out
-                if (currentInnings.getBatsmenBatting().size()<2) {
+                if (!batsmenService.isBattingPairAvailable()) {
                     completeOver(over,currentInnings);
                     return true;
                 }

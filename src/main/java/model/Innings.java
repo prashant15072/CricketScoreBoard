@@ -18,7 +18,8 @@ public class Innings {
 
     private final Team BattingTeam;
     private final Queue<Player> batsmenWaitingInPavilion;
-    private final LinkedList<Player> batsmenBatting;
+    private Player onStrikeBatsmen;
+    private Player offStrikeBatsmen;
 
     private final List<Over> overs;
 
