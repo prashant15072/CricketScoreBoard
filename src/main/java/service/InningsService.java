@@ -16,7 +16,7 @@ public class InningsService {
     InputService inputService;
     OverService overService;
 
-    public InningsService(Match match,BatsmenService batsmenService,InputService inputService,OutputService outputService){
+    InningsService(Match match,BatsmenService batsmenService,InputService inputService,OutputService outputService){
         this.matchInfo = match;
         this.batsmenService = batsmenService;
         this.inputService = inputService;
@@ -46,5 +46,5 @@ public class InningsService {
 
         return Innings.builder().totalNoOfOvers(matchInfo.getTotalNoOfOversInAnInnings()).BattingTeam(team)
                 .batsmenBatting(new LinkedList<>()).batsmenWaitingInPavilion(new LinkedList<>()).overs(new ArrayList<>()).build();
-}
+    }
 }

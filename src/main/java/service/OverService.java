@@ -13,13 +13,13 @@ public class OverService {
     InputService inputService;
     BatsmenService batsmenService;
 
-    public OverService(InputService inputService, OutputService outputService, BatsmenService batsmenService){
+    OverService(InputService inputService, OutputService outputService, BatsmenService batsmenService){
         this.outputService = outputService;
         this.inputService = inputService;
         this.batsmenService = batsmenService;
     }
 
-    public void startOvers(Innings currentInnings,boolean isLastInnings,int runsToWin){
+    void startOvers(Innings currentInnings,boolean isLastInnings,int runsToWin){
         for (int i=0;i<currentInnings.getTotalNoOfOvers();i++){
             boolean isInningsCompleted = startNewOver(currentInnings,isLastInnings,runsToWin);
             outputService.printScoreCard(currentInnings,currentInnings.getBatsmenBatting());

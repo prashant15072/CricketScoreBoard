@@ -13,7 +13,7 @@ public class BatsmenService{
     LinkedList<Player> batsmenBatting;
     Innings currentInnings;
 
-    public BatsmenService(Match match){
+    BatsmenService(Match match){
         this.matchInfo=match;
     }
 

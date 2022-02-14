@@ -15,8 +15,8 @@ public class Match {
     private boolean isMatchFinished;
     private final int noOfPlayersInEachTeam;
 
-    final List<Innings> inningsList;
-    final List<Team> teamsPlaying;
+    private final List<Innings> inningsList;
+    private final List<Team> teamsPlaying;
 
     public void addInnings(Innings inning){
         inningsList.add(inning);
