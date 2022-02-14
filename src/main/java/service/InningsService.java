@@ -11,10 +11,10 @@ import java.util.Queue;
 
 public class InningsService {
 
-    Match matchInfo;
-    BatsmenService batsmenService;
-    InputService inputService;
-    OverService overService;
+    private final Match matchInfo;
+    private BatsmenService batsmenService;
+    private InputService inputService;
+    private OverService overService;
 
     InningsService(Match match,BatsmenService batsmenService,InputService inputService,OutputService outputService){
         this.matchInfo = match;

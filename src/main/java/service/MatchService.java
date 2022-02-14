@@ -7,14 +7,14 @@ import model.*;
 import java.util.*;
 
 public class MatchService {
-    Match matchInfo;
-    boolean isFirstTeamBatting = true;
-    int runsToWin = -1;
+    private final Match matchInfo;
+    private boolean isFirstTeamBatting = true;
+    private int runsToWin = -1;
 
-    InputService inputService;
-    OutputService outputService;
-    BatsmenService batsmenService;
-    InningsService inningsService;
+    private InputService inputService;
+    private OutputService outputService;
+    private BatsmenService batsmenService;
+    private InningsService inningsService;
 
     public MatchService(int noOfPlayers, int noOfOvers, InputService inputService, OutputService outputService){
         List<Team> teams = new ArrayList<>(Constants.NO_OF_TEAMS_PLAYING);

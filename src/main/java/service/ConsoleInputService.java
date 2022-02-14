@@ -13,7 +13,7 @@ import java.util.Optional;
 import java.util.Scanner;
 
 public class ConsoleInputService implements InputService{
-    Scanner scanner ;
+    private Scanner scanner ;
 
     public ConsoleInputService() {
         this.scanner = new Scanner(System.in);

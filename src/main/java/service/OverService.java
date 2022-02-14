@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OverService {
-    OutputService outputService;
-    InputService inputService;
-    BatsmenService batsmenService;
+    private OutputService outputService;
+    private InputService inputService;
+    private BatsmenService batsmenService;
 
     OverService(InputService inputService, OutputService outputService, BatsmenService batsmenService){
         this.outputService = outputService;

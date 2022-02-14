@@ -8,10 +8,10 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class BatsmenService{
-    Match matchInfo;
-    Queue<Player> batsmenWaitingInPavilion;
-    LinkedList<Player> batsmenBatting;
-    Innings currentInnings;
+    private final Match matchInfo;
+    private Queue<Player> batsmenWaitingInPavilion;
+    private LinkedList<Player> batsmenBatting;
+    private Innings currentInnings;
 
     BatsmenService(Match match){
         this.matchInfo=match;
